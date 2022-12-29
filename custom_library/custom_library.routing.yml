@@ -1,0 +1,7 @@
+custom_library.config:
+  path: '/admin/custom-library/configuration'
+  defaults:
+    _title: 'Custom Library configuration'
+    _form: \Drupal\custom_library\Form\CustomLibraryConfigForm
+  requirements:
+    _role: 'administrator'

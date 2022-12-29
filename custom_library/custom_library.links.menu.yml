@@ -1,0 +1,5 @@
+custom_library.config_form:
+  title: Custom Library Configuration
+  parent: system.admin_structure
+  description: 'Manage the custom Libraries of our Site'
+  route_name: custom_library.config

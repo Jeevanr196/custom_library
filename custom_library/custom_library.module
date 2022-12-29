@@ -1,0 +1,27 @@
+<?php
+
+function custom_library_page_attachments_alter(&$attachments){
+    $attachments['#attached']['library'][] = 'custom_library/custom_library_assets';
+}
+function custom_library_library_info_alter(&$libraries, $extension){
+    $asset_type = \Drupal::config('custom_library.assets.settings')->get('asset_type');
+    
+    if($asset_type == 2){
+        if(isset($libraries['custom_library_assets'])){
+            $asset_links = \Drupal::config('custom_library.assets.settings')->get('asset_links');
+            $assets = explode(PHP_EOL,$asset_links);
+            foreach($assets as $k => $a){
+                $pathinfo = pathinfo($a);
+                $ext = $pathinfo['extension'];
+                if($ext == 'css'){
+                    $libraries['custom_library_assets']['css']['theme'][$a] = ['type'=>'external'];
+                }
+                if($ext == 'js'){
+                    $libraries['custom_library_assets']['js'][$a] = ['type'=>'external'];
+                }
+                
+            }
+            
+        }
+    }
+}

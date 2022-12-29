@@ -1,0 +1,7 @@
+custom_library_assets:
+  version: VERSION
+  js:
+    js/custom_library.js: {}
+  css:
+    theme:
+      css/custom_library.css: {}
